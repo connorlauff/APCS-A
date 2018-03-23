@@ -56,12 +56,13 @@ public class ElevensBoard extends Board {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 
 		
-		if (containsPairSum11(selectedCards) == true)
-			return true;
-		else if (containsJQK(selectedCards) == true){
-				return true;
-		}
-			return false;
+	if (selectedCards.size() == 2) {
+            return containsPairSum11(selectedCards);
+        }
+        else if (selectedCards.size() == 3) {
+            return containsJQK(selectedCards);
+        }
+        return false;
 	}
 	/**
 	 * Determine if there are any legal plays left on the board.
@@ -74,9 +75,10 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		List<Integer> cIndexes = cardIndexes();
-		if (containsPairSum11(cIndexes) || containsJQK(cIndexes))
-			return true;
+	List<Integer> cIndexes = cardIndexes();
+	if (!containsPairSum11(indexes)) {
+            return containsJQK(indexes);
+        }
 		return false;
 	}
 
@@ -90,6 +92,9 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if (selectedCards.size() < 2) {
+            		return false;
+        	}
 		int total = 0;
 		for (int i = 0; i< selectedCards.size(); i++){
 			Card one = cardAt(selectedCards.get(i));
