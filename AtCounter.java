@@ -34,12 +34,12 @@ public class AtCounter
 		//start checking at spot [r,c]
 		int counter = 0;
 		if(atMat[r][c] =='-' || r<0 || r>9 || c>9 || c<0){
-            return 0;
-        }
-        //if(!visited[r][c]){
+            		return 0;
+        	}
+
         if(atMat[r][c]=='@'){
-        		atMat[r][c] = 'v';
-        		counter++;
+        	atMat[r][c] = 'v';
+        	counter++;
             	if(atMat[r-1][c]=='@' && 0<=r && r<=9 && 0<=c && c<=9){
                     counter = counter + countAts(r - 1, c);
             	}
