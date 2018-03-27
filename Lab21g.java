@@ -15,6 +15,6 @@ public class Lab21g
 		test.countAts(0, 0);
 		test.getAtCount();
 		test.toString();
-		//test the code
+		
 	}
 }
